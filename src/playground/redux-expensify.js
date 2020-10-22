@@ -207,7 +207,7 @@ store.dispatch(sortByDate())
 // store.dispatch(setEndDate(1250))
 
 
-const demoState ={
+const demoState = {
     expenses: [{
         id: 'asasdf',
         description: 'Jan Rent',
