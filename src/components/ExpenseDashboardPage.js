@@ -1,9 +1,11 @@
 import React from 'react'
+import ExpenseList from './ExpenseList'
 
 const ExpenseDashboardPage = () => {
     return (
         <div>
-            thhs is a componenet
+            
+            <ExpenseList />
         </div>
     )
 }
