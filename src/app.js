@@ -9,6 +9,7 @@ import { setTextFilter } from './actions/filters'
 import getVisibleExpenses from './selectors/expenses'
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
+import expenses from './selectors/expenses'
 
 const store = configureStore()
 
@@ -27,5 +28,6 @@ const jsx = (
         <AppRouter />
     </Provider>
 )
+
 
 ReactDOM.render(jsx, document.getElementById('app'))
