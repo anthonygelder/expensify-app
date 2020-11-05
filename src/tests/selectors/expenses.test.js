@@ -1,34 +1,7 @@
 import selectExpense from '../../selectors/expenses'
 import moment from 'moment'
+import expenses from '../fixtures/expenses'
 
-const expenses = [{
-    id: '1',
-    description: 'Gum',
-    note: '',
-    amount: 195,
-    createdAt: -100000000000
-},
-{
-    id: '2',
-    description: 'Rent',
-    note: 'July',
-    amount: 155000,
-    createdAt: -100430
-},
-{
-    id: '3',
-    description: 'Car',
-    note: '',
-    amount: 50000,
-    createdAt: 25000000
-},
-{
-    id: '4',
-    description: 'Food',
-    note: '',
-    amount: 1895,
-    createdAt: 70000000000
-}]
 
 
 test('should filter by text value', () => {
