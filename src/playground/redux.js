@@ -1,5 +1,13 @@
 import {createStore} from 'redux'
 
+// const store = createStore((state = {count: 0}) => {
+//     return state
+// })
+// store.subscribe(() => {
+//     console.log(store.getState())
+
+// })
+
 // action generators returns action objects
 
 const incrementCount = ({ incrementBy = 1 } = {}) => {
@@ -62,13 +70,13 @@ const unsubscribe = store.subscribe(() => {
 })
 
 
-store.dispatch(incrementCount({incrementBy: 5}))
-store.dispatch(reset())
-store.dispatch(incrementCount())
+// store.dispatch(incrementCount({incrementBy: 5}))
+// store.dispatch(reset())
+// store.dispatch(incrementCount())
 
-store.dispatch(decrementCount({decrementBy: 5}))
-store.dispatch(decrementCount())
+// store.dispatch(decrementCount({decrementBy: 5}))
+// store.dispatch(decrementCount())
 
 
-store.dispatch(setCount({count: 111}))
+// store.dispatch(setCount({count: 111}))
 
