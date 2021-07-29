@@ -13,11 +13,14 @@ import expenses from './selectors/expenses'
 
 const store = configureStore()
 
-store.dispatch(addExpense({description: 'rent', amount: 200, createdAt: -1000}))
+store.dispatch(addExpense({description: 'rent bill', amount: 200, createdAt: -1000}))
 store.dispatch(addExpense({description: 'place', amount: 100, createdAt: 11000}))
-store.dispatch(addExpense({description: 'water', amount: 1000, createdAt: 1100}))
+store.dispatch(addExpense({description: 'water bill', amount: 1000, createdAt: 1100}))
+store.dispatch(setTextFilter('bill'))
 
 const state = store.getState()
+console.log(state)
+
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 console.log(visibleExpenses)
 

@@ -1,7 +1,5 @@
 import moment from 'moment'
 
-
-
 const filtersRecuderDefaultState = {
     text: '',
     sortBy: 'date',
