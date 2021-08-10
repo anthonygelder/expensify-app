@@ -6,14 +6,14 @@ import { DateRangePicker } from 'react-dates'
 
 class ExpenseListFilters extends React.Component {
     state = {
-        calenderFocused: null
+        calendarFocused: null
     }
     onDatesChange = ({startDate, endDate}) => {
         this.props.dispatch(setStartDate(startDate))
         this.props.dispatch(setEndDate(endDate))
     }
-    onFocusChange = (calenderFocused) => {
-        this.setState(() => ({ calenderFocused }))
+    onFocusChange = (calendarFocused) => {
+        this.setState(() => ({ calendarFocused }))
     }
     render () {
         return (
@@ -23,10 +23,9 @@ class ExpenseListFilters extends React.Component {
                 }}/>
                 <select value={this.props.filters.sortBy} onChange={(e) => {
                     const { value } = e.target
-                    console.log(value)
-                    if(e.target.value === "date") {
+                    if(value === "date") {
                         this.props.dispatch(sortByDate())
-                    } else if(e.target.value === "amount") {
+                    } else if(value === "amount") {
                         this.props.dispatch(sortByAmount())
                     }
                 }}>
@@ -37,7 +36,7 @@ class ExpenseListFilters extends React.Component {
                     startDate={this.props.filters.startDate}
                     endDate={this.props.filters.endDate}
                     onDatesChange={this.onDatesChange}
-                    focusedInput={this.state.calenderFocused}
+                    focusedInput={this.state.calendarFocused}
                     onFocusChange={this.onFocusChange}
                     numberOfMonths={1}
                     isOutsideRange={() => false}
@@ -55,5 +54,5 @@ const mapStateToProps = (state) => {
         filters: state.filters
     }
 }
- 
+
 export default connect(mapStateToProps)(ExpenseListFilters)

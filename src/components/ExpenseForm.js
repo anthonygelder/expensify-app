@@ -3,9 +3,6 @@ import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css'
 
-const now = moment()
-console.log(now.format())
-
 class ExpenseForm extends React.Component {
     constructor(props) {
         super(props)
@@ -14,7 +11,7 @@ class ExpenseForm extends React.Component {
             note: props.expense ? props.expense.note : '',
             amount: props.expense ? (props.expense.amount / 100).toString() : '',
             createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
-            focused: false,
+            calenderFocused: false,
             error: ''
         }
     }
@@ -43,19 +40,19 @@ class ExpenseForm extends React.Component {
     }
 
     onFocusChange = ({ focused }) => {
-        this.setState(() => ({ focused }))
+        this.setState(() => ({ calenderFocused: focused }))
     }
 
     onSubmit = (e) => {
         e.preventDefault()
 
         if(!this.state.description || !this.state.amount) {
-            this.setState(() => ({ error: 'You must enter a description and amount' }))
+            this.setState(() => ({ error: 'You must enter a description and amount.' }))
         } else {
             this.setState(() => ({ error: '' }))
             this.props.onSubmit({
                 description: this.state.description,
-                amount: parseFloat(this.state.amount),
+                amount: parseFloat(this.state.amount, 10) * 100,
                 createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note
             })
@@ -82,17 +79,17 @@ class ExpenseForm extends React.Component {
                     <SingleDatePicker
                         date={this.state.createdAt}
                         onDateChange={this.onDateChange}
-                        focused={this.state.focused}
+                        focused={this.state.calenderFocused}
                         onFocusChange={this.onFocusChange}
                         numberOfMonths={1}
-                        isOutsideRange={(day) => false}
+                        isOutsideRange={() => false}
                     />
                     <textarea 
                         placeholder="Add a note (optional)"
                         value={this.state.note}
                         onChange={this.onNoteChange}
                     ></textarea>
-                    <button>Add expense</button>
+                    {this.props.expense ? <button>Edit expense</button> : <button>Add expense</button>}
                 </form>
             </div>
         )

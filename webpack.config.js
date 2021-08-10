@@ -1,4 +1,3 @@
-// entry - > output
 const path = require('path')
 
 module.exports = {

@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { removeExpense } from '../actions/expenses'
 
-const ExpenseListItem = (props) => (
+const ExpenseListItem = ({ dispatch, description, amount, createdAt, id }) => (
     <div>
-        <p>{props.description}</p>
-        <p>{props.amount}</p>
-        <p>{props.createdAt}</p>
-        <Link to={`/edit/${props.id}`}>Edit</Link>
+        <h3>{description}</h3>
+        <p>Amount - {amount}</p>
+        <p>Created At - {createdAt}</p>
+        <Link to={`/edit/${id}`}>Edit</Link>
     </div>
 )
 

@@ -1,5 +1,10 @@
 // higher order components HOC
 // A component (HOC) that renders another component
+// goal is to reuse code
+// render hijacking
+// prop manipulation
+// abstract state
+
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -32,4 +37,4 @@ const AdminInfo = withAdminWarning(Info)
 const AuthInfo = requireAuth(Info)
 
 // ReactDOM.render(<AdminInfo isAdmin={true} info="This is the info" />, document.getElementById('app'))
-ReactDOM.render(<AuthInfo isAuth={true} info="This is the info" />, document.getElementById('app'))
+ReactDOM.render(<AuthInfo isAuth={false} info="This is the info" />, document.getElementById('app'))
