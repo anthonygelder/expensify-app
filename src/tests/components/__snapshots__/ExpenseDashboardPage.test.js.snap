@@ -6,15 +6,3 @@ exports[`should render ExpenseDashboardPage 1`] = `
   <Connect(ExpenseList) />
 </div>
 `;
-
-exports[`should render NotFoundPage 1`] = `
-<div>
-  404!
-  <Link
-    replace={false}
-    to="/"
-  >
-    Go home
-  </Link>
-</div>
-`;
